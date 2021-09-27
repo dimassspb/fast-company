@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/fast-company/static/css/main.2ae47eeb.chunk.css",
+    "main.js": "/fast-company/static/js/main.f82feeec.chunk.js",
+    "main.js.map": "/fast-company/static/js/main.f82feeec.chunk.js.map",
+    "runtime-main.js": "/fast-company/static/js/runtime-main.551e37a2.js",
+    "runtime-main.js.map": "/fast-company/static/js/runtime-main.551e37a2.js.map",
+    "static/css/2.983f79de.chunk.css": "/fast-company/static/css/2.983f79de.chunk.css",
+    "static/js/2.276a89d4.chunk.js": "/fast-company/static/js/2.276a89d4.chunk.js",
+    "static/js/2.276a89d4.chunk.js.map": "/fast-company/static/js/2.276a89d4.chunk.js.map",
+    "static/js/3.db99b48d.chunk.js": "/fast-company/static/js/3.db99b48d.chunk.js",
+    "static/js/3.db99b48d.chunk.js.map": "/fast-company/static/js/3.db99b48d.chunk.js.map",
+    "index.html": "/fast-company/index.html",
+    "static/css/2.983f79de.chunk.css.map": "/fast-company/static/css/2.983f79de.chunk.css.map",
+    "static/css/main.2ae47eeb.chunk.css.map": "/fast-company/static/css/main.2ae47eeb.chunk.css.map",
+    "static/js/2.276a89d4.chunk.js.LICENSE.txt": "/fast-company/static/js/2.276a89d4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.551e37a2.js",
+    "static/css/2.983f79de.chunk.css",
+    "static/js/2.276a89d4.chunk.js",
+    "static/css/main.2ae47eeb.chunk.css",
+    "static/js/main.f82feeec.chunk.js"
+  ]
+}
