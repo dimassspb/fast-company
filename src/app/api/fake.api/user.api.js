@@ -93,7 +93,8 @@ const users = [
         profession: professions.engineer,
         qualities: [qualities.strange, qualities.tedious],
         completedMeetings: 72,
-        rate: 3.5
+        rate: 3.5,
+        bookmark: false
     },
     {
         _id: '67rdca3eeb7f6fgeed471822',
@@ -144,11 +145,19 @@ const users = [
 
 const fetchAll = () =>
     new Promise((resolve) => {
-        window.setTimeout(function() {
+        window.setTimeout(() => {
             resolve(users);
         }, 2000);
     });
 
+const getById = (id) =>
+    new Promise((resolve) => {
+        window.setTimeout(() => {
+            resolve(users.find((user) => user._id === id));
+        }, 2000);
+    });
+
 export default {
-    fetchAll
+    fetchAll,
+    getById
 };

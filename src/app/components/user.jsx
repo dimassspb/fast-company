@@ -1,57 +1,43 @@
 import React from 'react';
-import Qualitie from './qualitie';
-import BookMark from './bookmark';
 import PropTypes from 'prop-types';
+import QualitiesList from './qualitiesList';
+import { useHistory } from 'react-router';
 
-const User = ({
-    _id,
-    name,
-    qualities,
-    profession,
-    completedMeetings,
-    rate,
-    onDelete,
-    bookmark,
-    onToggleBookMark
-}) => {
+const User = ({ name, qualities, profession, completedMeetings, rate }) => {
+    const history = useHistory();
+
+    const handleSave = () => {
+        history.replace('/users');
+    };
+
     return (
-        <tr key={_id}>
-            <td>{name}</td>
-            <td>
-                {qualities.map((qual) => (
-                    <Qualitie {...qual} key={qual._id} />
-                ))}
-            </td>
-            <td>{profession.name}</td>
-            <td>{completedMeetings}</td>
-            <td>{rate} /5</td>
-            <td>
-                <BookMark
-                    status={bookmark}
-                    onClick={() => onToggleBookMark(_id)}
-                />
-            </td>
-            <td>
-                <button
-                    onClick={() => onDelete(_id)}
-                    className="btn btn-danger"
-                >
-                    delete
+        <div className="d-flex flex-column m-3">
+            <h1 className="mb-3">{name}</h1>
+            <h2>{`Профессия: ${profession.name}`}</h2>
+            <ul>
+                <QualitiesList qualities={qualities} />
+            </ul>
+            <span>{`completedMeetings: ${completedMeetings}`}</span>
+            <h3 className="my-3">{`Rate: ${rate}/5`}</h3>
+            <div>
+                <button className="btn btn-success" onClick={() => handleSave()}>
+          Все пользователи
                 </button>
-            </td>
-        </tr>
+            </div>
+        </div>
     );
 };
+
 User.propTypes = {
-    _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    qualities: PropTypes.array.isRequired,
-    profession: PropTypes.object.isRequired,
-    completedMeetings: PropTypes.number.isRequired,
-    rate: PropTypes.number.isRequired,
-    onDelete: PropTypes.func.isRequired,
-    bookmark: PropTypes.bool,
-    onToggleBookMark: PropTypes.func.isRequired
+    name: PropTypes.string,
+    qualities: PropTypes.array,
+    profession: PropTypes.object,
+    completedMeetings: PropTypes.number,
+    rate: PropTypes.number,
+    _id: PropTypes.string,
+    onDelete: PropTypes.func,
+    onToggleBookMark: PropTypes.func,
+    status: PropTypes.bool
 };
 
 export default User;

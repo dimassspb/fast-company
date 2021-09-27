@@ -1,16 +1,17 @@
 import React from 'react';
-import Qualitie from './qualitie';
 import PropTypes from 'prop-types';
+import Qualitie from './qualitie';
 
 const QualitiesList = ({ qualities }) => {
     return (
         <>
-            {qualities.map((qual) => (
-                <Qualitie {...qual} key={qual._id} />
+            {qualities.map((item) => (
+                <Qualitie key={item._id} {...item} />
             ))}
         </>
     );
 };
+
 QualitiesList.propTypes = {
     qualities: PropTypes.array.isRequired
 };
