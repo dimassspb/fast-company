@@ -1,16 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ListGroup = ({ items, valueProperty, contentProperty, onItemSelect, selectedItem }) => {
+const GroupList = ({
+    items,
+    valueProperty,
+    contentProperty,
+    onItemSelect,
+    selectedItem
+}) => {
     if (!Array.isArray(items)) {
         return (
             <ul className="list-group">
                 {Object.keys(items).map((item) => (
                     <li
                         key={items[item][valueProperty]}
+                        className={
+                            'list-group-item' +
+                            (items[item] === selectedItem ? ' active' : '')
+                        }
+                        onClick={() => onItemSelect(items[item])}
                         role="button"
-                        className={'list-group-item' + (items[item] === selectedItem ? ' active' : '')}
-                        onClick={() => onItemSelect(items[item])}>
+                    >
                         {items[item][contentProperty]}
                     </li>
                 ))}
@@ -22,22 +32,24 @@ const ListGroup = ({ items, valueProperty, contentProperty, onItemSelect, select
             {items.map((item) => (
                 <li
                     key={item[valueProperty]}
+                    className={
+                        'list-group-item' +
+                        (item === selectedItem ? ' active' : '')
+                    }
+                    onClick={() => onItemSelect(item)}
                     role="button"
-                    className={'list-group-item' + (item === selectedItem ? ' active' : '')}
-                    onClick={() => onItemSelect(item)}>
+                >
                     {item[contentProperty]}
                 </li>
             ))}
         </ul>
     );
 };
-
-ListGroup.defaultProps = {
+GroupList.defaultProps = {
     valueProperty: '_id',
     contentProperty: 'name'
 };
-
-ListGroup.propTypes = {
+GroupList.propTypes = {
     items: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
     valueProperty: PropTypes.string.isRequired,
     contentProperty: PropTypes.string.isRequired,
@@ -45,4 +57,4 @@ ListGroup.propTypes = {
     selectedItem: PropTypes.object
 };
 
-export default ListGroup;
+export default GroupList;
