@@ -21,7 +21,14 @@ const UserPage = ({ userId }) => {
                 <QualitiesList qualities={user.qualities} />
                 <p>completedMeetings: {user.completedMeetings}</p>
                 <h2>Rate: {user.rate}</h2>
-                <button onClick={handleClick}> Все Пользователи</button>
+                <button
+                    type="button"
+                    className="btn btn-success"
+                    onClick={handleClick}
+                >
+                    {' '}
+                    Все Пользователи
+                </button>
             </div>
         );
     } else {
