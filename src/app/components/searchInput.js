@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const SearchInput = ({ value, onChange }) => {
     return (
-        <div className="input-group mb-3">
+        <div className="input-group shadow mb-3">
             <input
                 className="form-control"
                 onChange={onChange}

@@ -3,9 +3,14 @@ export function validator(data, config) {
     function validate(validateMethod, data, config) {
         let statusValidate;
         switch (validateMethod) {
-        case 'isRequired':
-            statusValidate = data.trim() === '';
+        case 'isRequired': {
+            if (typeof data === 'boolean') {
+                statusValidate = !data;
+            } else {
+                statusValidate = data.trim() === '';
+            }
             break;
+        }
         case 'isEmail': {
             const emailRegExp = /^\S+@\S+\.\S+$/g;
             statusValidate = !emailRegExp.test(data);
@@ -33,7 +38,10 @@ export function validator(data, config) {
     for (const fieldName in data) {
         for (const validateMethod in config[fieldName]) {
             const error = validate(
-                validateMethod, data[fieldName], config[fieldName][validateMethod]);
+                validateMethod,
+                data[fieldName],
+                config[fieldName][validateMethod]
+            );
             if (error && !errors[fieldName]) {
                 errors[fieldName] = error;
             }
