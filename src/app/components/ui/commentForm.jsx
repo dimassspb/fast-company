@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { validator } from '../../utils/validator';
 import TextArea from '../common/form/textArea';
@@ -53,6 +53,10 @@ const CommentForm = ({ id, users, add }) => {
         add(comment);
         clear();
     };
+
+    useEffect(() => {
+        validate();
+    }, [data]);
 
     return (
         <div className="card mb-2">
