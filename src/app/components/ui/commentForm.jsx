@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { validator } from '../../utils/validator';
-import TextAreaField from '../common/form/textField';
+import TextArea from '../common/form/textArea';
 import SelectField from '../common/form/selectField';
 
 const CommentForm = ({ id, users, add }) => {
@@ -68,13 +68,13 @@ const CommentForm = ({ id, users, add }) => {
                         value={data.user}
                         error={errors.user}
                     />
-                    <TextAreaField
+                    <TextArea
+                        row={3}
                         onChange={handleChange}
                         label="Сообщение"
                         name="comment"
                         value={data.comment}
                         error={errors.comment}
-                        rows="3"
                     />
                     <div className="d-flex justify-content-end m-4">
                         <button
